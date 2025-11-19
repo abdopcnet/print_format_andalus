@@ -1,0 +1,676 @@
+<!-- ====== جدول المجاميع ====== -->
+<div
+  style="
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    background: none !important;
+  "
+>
+  <div
+    style="
+      text-align: center;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100%;
+      max-width: 100%;
+      direction: rtl;
+      background: none !important;
+      box-sizing: border-box;
+    "
+  >
+    <!-- اجمالي الاصناف -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          اجمالي الاصناف
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.total) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- خط فاصل -->
+    <div
+      style="
+        width: 100%;
+        border-top: 1px solid #000;
+        margin: 5px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+      "
+    ></div>
+
+    <!-- الخصم علي الفاتورة -->
+    {% if doc.discount_amount and doc.discount_amount != 0 %}
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          {% if doc.additional_discount_percentage %} نسبة الخصم الفاتورة ({{
+          doc.additional_discount_percentage }}%) {% else %} الخصم علي الفاتورة
+          {% endif %}
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.discount_amount) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    {% endif %}
+
+    <!-- الخاضع للضريبة -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          الخاضع للضريبة
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.net_total) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- قيمة الضريبة -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          قيمة الضريبة
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.total_taxes_and_charges) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- المبلغ المستحق -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          المبلغ المستحق
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.grand_total) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 19px;
+                height: 19px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 19px;
+                  height: 19px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- خط فاصل -->
+    <div
+      style="
+        width: 100%;
+        border-top: 1px solid #000;
+        margin: 5px 0 !important;
+        padding: 0 !important;
+        background: none !important;
+      "
+    ></div>
+
+    <!-- طرق الدفع -->
+    {% if doc.payments %} {% for payment in doc.payments %}
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          {{ payment.mode_of_payment }}
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(payment.amount) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    {% endfor %} {% endif %}
+
+    <!-- المبلغ المدفوع -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          المبلغ المدفوع
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.paid_amount) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- المبلغ المتبقي للعميل -->
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 13px;
+        line-height: 0.95;
+        table-layout: fixed;
+        background: none !important;
+        box-sizing: border-box;
+        max-width: 100%;
+      "
+    >
+      <tr style="height: 10px">
+        <td
+          style="
+            text-align: right;
+            font-weight: bold;
+            color: #000 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          المبلغ المتبقي للعميل
+        </td>
+        <td
+          style="
+            text-align: left;
+            font-weight: bold;
+            color: #175e17 !important;
+            width: 50%;
+            white-space: nowrap;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: none !important;
+            font-size: 13px;
+            line-height: 0.95;
+          "
+        >
+          <span style="display: inline-flex; align-items: center">
+            {{ "{:.2f}".format(doc.change_amount) }}
+            <span
+              style="
+                background: none !important;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 4px;
+                width: 17px;
+                height: 17px;
+                box-shadow: none !important;
+              "
+            >
+              <img
+                src="https://erp.andalus-sweets.com/files/Saudi_Riyal.png"
+                style="
+                  width: 17px;
+                  height: 17px;
+                  display: block;
+                  margin: 0 !important;
+                  padding: 0 !important;
+                "
+                alt="ر.س"
+              />
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

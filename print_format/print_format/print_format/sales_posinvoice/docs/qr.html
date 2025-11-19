@@ -1,0 +1,81 @@
+<!-- ====== كود QR - بدون أي تباعد خارجي أو داخلي، عرض كامل، وضوح عالي للطباعة الحرارية ====== -->
+<div
+  style="
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: none !important;
+  "
+>
+  <!-- صورة QR أو رسالة الخطأ -->
+  {% if doc.custom_qr_image_src %}
+  <img
+    src="{{ doc.custom_qr_image_src }}"
+    style="
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin: 0 auto !important;
+      display: block;
+      filter: none !important;
+      background: none !important;
+      padding: 0 !important;
+      box-sizing: border-box;
+    "
+  />
+  {% else %}
+  <p
+    style="
+      color: #000 !important;
+      font-weight: bold;
+      font-size: 12px;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 0.95;
+      background: none !important;
+      width: 100%;
+      text-align: center;
+    "
+  >
+    الرمز لم يتم إنشاءه
+  </p>
+  {% endif %}
+
+  <!-- حالة الربط -->
+  {% if doc.custom_integration_status %}
+  <p
+    style="
+      font-size: 10px;
+      margin: 5px 0 0 0 !important;
+      padding: 0 !important;
+      color: #000 !important;
+      line-height: 1.2;
+      width: 100%;
+      text-align: center;
+      background: none !important;
+    "
+  >
+    {{ doc.custom_integration_status }}
+  </p>
+  {% endif %}
+
+  <!-- نص سياسة الاستبدال -->
+  <p
+    style="
+      font-size: 14px;
+      font-weight: bold;
+      margin: 10px 0 0 0 !important;
+      padding: 0 !important;
+      color: #000 !important;
+      line-height: 1.2;
+      width: 100%;
+      text-align: center;
+      background: none !important;
+    "
+  >
+    {{ _("البضاعة المباعة لا تُرد ولا تُستبدل") }}
+  </p>
+</div>
